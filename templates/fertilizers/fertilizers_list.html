@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <ul>
+    {% for fertilizer in fertilizers_list %}
+      <li>
+        {{ fertilizer }}
+        <ul>
+          {% for nutrientcontent in fertilizer.nutrientcontent_set.all %}
+            <li>
+              {{ nutrientcontent.nutrient }} {{ nutrientcontent.percentage_content }}%
+            </li>
+          {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
